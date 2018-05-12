@@ -31,4 +31,15 @@ print(rectangle1.width())
 print(rectangle2.height())
 print(rectangle1.area())
 print(rectangle1.circumference())
+# [Qns] : why ??
 print(rectangle1)
+
+
+class Square(Rectangle):
+    def __init__(self, x1, y1):
+        super().__init__(x1, y1, 10, 10)
+
+
+square1 = Square(1, 2)
+print(square1.area())
+print(square1)
