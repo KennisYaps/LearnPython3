@@ -18,7 +18,7 @@ This is a consolidation of what I have learned and the mistakes I made
 
 - `key` − This is the Key to be searched in the dictionary
 - `default` − This is the Value to be returned in case key does not exist.
-- ##### Use case: When you want to find the no.of occurance of the letter in an text
+- **Use case**: When you want to find the no.of occurance of the letter in an text
 Example: 
 `text = "hellohellohello"` to return this `{'h': 3, 'e': 3, 'l': 6, 'o': 3}`
 
