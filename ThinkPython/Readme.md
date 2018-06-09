@@ -16,7 +16,7 @@ This is a consolidation of what I have learned and the mistakes I made
 `dict_name.<SOME_METHODS>`
 
 1.  `dict()`: Declare an empty dictionaries
-2.  `get(key, default=None)`:
+2.  `.get(key, default=None)`:
 
 - `key` − This is the Key to be searched in the dictionary
 - `default` − This is the Value to be returned in case key does not exist.
@@ -33,10 +33,10 @@ This is a consolidation of what I have learned and the mistakes I made
   ```
 
   `.get()` is finding the _key_ `letter` in the dict, `tabulate`. If the _key_ doesnt exist, the value will be `0`. Else, if it exist, the _key_'s value will `+= 1`
+
   https://www.tutorialspoint.com/python3/dictionary_get.htm
 
 3.  Sorting a dict by its Value / Key
-    https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
 
     - By `Value`:
       Example:
@@ -48,7 +48,7 @@ This is a consolidation of what I have learned and the mistakes I made
       ```
 
       return
-      `[('h', 3), ('e', 3), ('o', 3), ('l', 6)]`
+      `sort` will return `[('h', 3), ('e', 3), ('o', 3), ('l', 6)]`
 
       - Syntax for `sorted()`:
         `sorted(iterable, *, key=None, reverse=False)`
@@ -57,7 +57,8 @@ This is a consolidation of what I have learned and the mistakes I made
         - Has two optional arguments which must be specified as keyword arguments.
         - `key`= used as a comparison key from each list element. Default value will be `key = None`, which will compare the elements directly.
         - `reverse` is a boolean value. If set to True, then the list elements are sorted in reversed order.
-          https://docs.python.org/3/library/functions.html#sorted
+
+        https://docs.python.org/3/library/functions.html#sorted
 
       - `unsorted_dict.items()` will return `dict_items([('h', 3), ('e', 3), ('l', 6), ('o', 3)])`
       - `operator.itemgetter(1)` will get element in index 1 and set it to be the comparison `key`
@@ -65,3 +66,24 @@ This is a consolidation of what I have learned and the mistakes I made
 
     - By `Key`:
       - replace `1` to `0` to get the `key` value. `operator.itemgetter(0)`
+
+    https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
+
+4.  `.setdefault(key, default = None)`
+
+    - `setdefault()` is similar to `get()`, but will set `dict[key] = default` if key is not already in dict
+    - `key` − key to be searched.
+    - `default` − This is the Value to be returned in case `key` is not found.
+    - **Use case**: When you want to grouped identical dict's keys in a list
+      Example:
+      `{'h': 3, 'e': 3, 'l': 6, 'o': 3}` to return this `{3: ['h', 'e', 'o'], 6: ['l']}`
+      ```python
+      d = {'h': 3, 'e': 3, 'l': 6, 'o': 3}
+      grouped = dict()
+      for key, value in d.items():
+          grouped.setdefault(value, []).append(key)
+          sort_Grouped = sortDict(grouped, 0)
+      ```
+      - `.setdefault()` search the key which is =`value`. If not found return an empty list `[]`. If found, use the existing list.
+
+    https://www.tutorialspoint.com/python3/dictionary_setdefault.htm
